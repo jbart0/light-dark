@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strona główna - Wfo</title>
+    <link rel="stylesheet" href="style.css?v=2.6">
+    <link rel="stylesheet" href="style.css" id="theme-stylesheet">
+    <link rel="icon" type="image/png" href="https://www.wfo.com.pl/wp-content/uploads/2015/11/wfo-100x33.png">
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-brand">
+                <img src="https://www.wfo.com.pl/wp-content/uploads/2015/11/wfo-100x33.png" alt="WFO Logo" class="logo">
+            </div>
+            
+            <div class="nav-actions">
+                <button class="icon-button search-toggle">
+                    <i data-lucide="search"></i>
+                </button>
+
+                <!-- Theme Switcher -->
+                <div class="theme-switcher">
+                    <input type="checkbox" id="theme-toggle" class="theme-toggle-checkbox">
+                    <label for="theme-toggle" class="theme-toggle-label">
+                        <div class="toggle-ball"></div>
+                    </label>
+                </div>
+
+                <button class="icon-button menu-toggle">
+                    <i data-lucide="menu"></i>
+                </button>
+            </div>
+        </nav>
+        
+        <div class="search-bar" id="search-bar">
+            <div class="search-container">
+                <input type="text" id="search-input" placeholder="Szukaj filmów...">
+                <button class="search-btn">
+                    <i data-lucide="search"></i>
+                </button>
+            </div>
+        </div>
+        
+        <div class="mobile-menu" id="mobile-menu">
+            <a href="index.html">Strona główna</a>
+            <a href="Kategorie.html">Kategorie</a>
+            <a href="Nowości.html">Nowości</a>
+            <a href="Popularne.html">Popularne</a>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="container">
+            <div class="hero-section">
+                <h1>Witaj w WFO</h1>
+                <p>Odkryj najlepsze filmy i seriale</p>
+            </div>
+
+            <div class="category-row">
+                <div class="category-header">
+                    <h2>Polecane</h2>
+                    <a href="Kategorie.html" class="view-all">Zobacz wszystkie</a>
+                </div>
+                <div class="movie-row" id="recommended-movies">
+                    <!-- Movies will be inserted here by JavaScript -->
+                </div>
+            </div>
+
+            <!-- Dynamic category rows will be inserted here by JavaScript -->
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 WFO. Wszystkie prawa zastrzeżone.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>

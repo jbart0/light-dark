@@ -1,0 +1,19 @@
+@@ .. @@
+  <title>Moje Konto</title>
+  <link rel="stylesheet" href="style.css?v=<?= filemtime('styles.css') ?>" />
++  <link rel="stylesheet" href="style.css" id="theme-stylesheet" />
+  <link rel="icon" type="image/png" href="https://www.wfo.com.pl/wp-content/uploads/2015/11/wfo-100x33.png">
+@@ .. @@
+      <div class="nav-actions">
+        <a href="Logowanie.html" class="btn btn-primary login-button">
+          Zaloguj się
+        </a>
++        <!-- Theme Switcher -->
++        <div class="theme-switcher">
++            <input type="checkbox" id="theme-toggle" class="theme-toggle-checkbox">
++            <label for="theme-toggle" class="theme-toggle-label">
++                <div class="toggle-ball"></div>
++            </label>
++        </div>
+      </div>
+@@ .. @@
