@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logowanie WFO</title>
+    <link rel="stylesheet" href="styles.css?v=<?= filemtime('styles.css') ?>">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        /* Ukrywanie grupy login jako klasa (lepsze niż style inline) */
+        .hidden {
+            display: none;
+        }
+
+        /* Special handling for reCAPTCHA - use visibility instead of display */
+        #recaptchaGroup.hidden {
+            display: block;
+            visibility: hidden;
+            height: 0;
+            overflow: hidden;
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+
+        #recaptchaGroup:not(.hidden) {
+            visibility: visible;
+            height: auto;
+            opacity: 1;
+        }
+    </style>
+    <script src="https://www.google.com/recaptcha/api.js?onload=onRecaptchaLoad" async defer></script>
+    <script>
+        // reCAPTCHA debugging
+        function onRecaptchaLoad() {
+            console.log('reCAPTCHA loaded successfully');
+            // Store that reCAPTCHA is loaded
+            window.recaptchaLoaded = true;
+        }
+
+        // Add callback for when reCAPTCHA is completed
+        function onRecaptchaCallback(response) {
+            console.log('reCAPTCHA completed, response length:', response.length);
+            // Store the response globally for debugging
+            window.lastRecaptchaResponse = response;
+        }
+
+        // Add callback for when reCAPTCHA expires
+        function onRecaptchaExpired() {
+            console.log('reCAPTCHA expired');
+            window.lastRecaptchaResponse = null;
+        }
+    </script>
+</head>
+<body>
+    <div class="featured-backdrop-log"></div>
+
+    <div class="auth-container">
+        <div class="auth-box">
+
+            <div class="auth-header">
+                <i data-lucide="film" class="auth-logo"></i>
+                <h2 class="auth-title-logo">WFO</h2>
+                <h2 class="auth-title">Witaj Ponownie</h2>
+                <p class="auth-subtitle">Zaloguj się do konta</p>
+            </div>
+
+            <form id="authForm" class="auth-form">
+
+
+                <!-- Grupa login (dla rejestracji), ukryta na start -->
+                <div class="form-group hidden" id="nameGroup">
+                    <label for="login">Login</label>
+                    <div class="input-icon">
+                        <i data-lucide="user"></i>
+                        <input type="text" id="login" name="login">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">E-mail</label>
+                    <div class="input-icon">
+                        <i data-lucide="mail"></i>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Hasło</label>
+                    <div class="input-icon">
+                        <i data-lucide="lock"></i>
+                        <input type="password" id="password" name="password" required>
+                    </div>
+                </div>
+
+                <!-- Google reCAPTCHA -->
+                <div class="form-group hidden" id="recaptchaGroup">
+                    <div class="g-recaptcha"
+                         data-sitekey="6Lejx1UrAAAAAM0_WVUuazT48lk_bpyICn68s94V"
+                         data-callback="onRecaptchaCallback"
+                         data-expired-callback="onRecaptchaExpired"></div>
+                </div>
+
+                <div id="errorMessage" class="error-message" style="display: none;"></div>
+
+                <button type="submit" class="auth-submit">Zaloguj się</button>
+            </form>
+
+            <div class="auth-switch">
+                <button id="switchAuth" type="button">
+                    Nie masz konta? Zarejestruj się!
+                </button>
+            </div>
+
+            <div class="auth-back">
+                <a href="index.html" class="back-link">
+                    <i data-lucide="arrow-left"></i>
+                    Powróć na stronę główną
+                </a>
+            </div>
+        </div>
+    </div>
+<div id="toast" class="toast" style="display: none;"></div>
+    <script src="shared.js?v=<?= filemtime('shared.js') ?>"></script>
+    <script src="auth.js?v=<?= filemtime('auth.js') ?>"></script>
+
+
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Odtwarzacz - FilmFlix</title>
+    <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="player-page">
+    <!-- Navbar -->
+    <header class="navbar">
+        <div class="navbar-container">
+            <a href="/" class="logo">
+                <i data-lucide="film" class="logo-icon"></i>
+                <span class="logo-text">FilmFlix</span>
+            </a>
+
+            <nav class="nav-links">
+                <a href="index.html" class="nav-link">Strona Główna</a>
+                <a href="Filmy.html" class="nav-link">Filmy</a>
+                <a href="Kategorie.html" class="nav-link">Kategorie</a>
+                <a href="Lista do obejrzenia.html" class="nav-link">Lista do obejrzenia</a>
+            </nav>
+
+            <div class="nav-actions">
+                <button class="icon-button search-toggle">
+                    <i data-lucide="search"></i>
+                </button>
+                <a href="Logowanie.html" class="icon-button">
+                    <i data-lucide="user-circle"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Video Player Section -->
+    <main class="player-container">
+        <div class="video-player">
+            <div class="video-wrapper">
+                <video id="moviePlayer" playsinline controls>
+                    <source src="" type="video/mp4">
+                </video>
+            </div>
+        </div>
+        <div class="movie-info">
+            <div class="movie-info-header">
+                <h1 id="movieTitle"></h1>
+                <div class="movie-meta">
+                    <span id="movieRating" class="rating"></span>
+                    <span id="movieYear"></span>
+                    <span id="movieGenre"></span>
+                </div>
+            </div>
+            <p id="movieDescription" class="movie-description"></p>
+        </div>
+    </main>
+
+    <script src="https://cdn.plyr.io/3.7.8/plyr.polyfilled.js"></script>
+    <script src="app.js"></script>
+    <script src="player.js"></script>
+</body>
+</html>
