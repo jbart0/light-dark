@@ -1,17 +1,119 @@
-@@ .. @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Odtwarzacz - WFO</title>
+    <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="style.css" id="theme-stylesheet" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="https://wfo.edu.pl/wp-content/uploads/2023/09/cropped-favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="https://wfo.edu.pl/wp-content/uploads/2023/09/cropped-favicon-16x16.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="https://wfo.edu.pl/wp-content/uploads/2023/09/cropped-favicon-180x180.png"
+    />
+    <meta name="msapplication-TileColor" content="#da532c" />
+    <meta name="theme-color" content="#ffffff" />
+  </head>
+  <body>
+    <div class="container">
+      <header class="header">
+        <nav class="nav">
+          <div class="nav-brand">
+            <img
+              src="https://wfo.edu.pl/wp-content/uploads/2023/09/cropped-favicon-32x32.png"
+              alt="WFO Logo"
+              class="logo"
+            />
+            <span class="brand-text">Odtwarzacz WFO</span>
+          </div>
+          <div class="nav-actions">
             <div class="nav-actions">
               <button class="icon-button search-toggle">
                 <i data-lucide="search"></i>
               </button>
-+
-+              <!-- Theme Switcher -->
-+              <div class="theme-switcher">
-+                  <input type="checkbox" id="theme-toggle" class="theme-toggle-checkbox">
-+                  <label for="theme-toggle" class="theme-toggle-label">
-+                      <div class="toggle-ball"></div>
-+                  </label>
-+              </div>
+
+              <!-- Theme Switcher -->
+              <div class="theme-switcher">
+                  <input type="checkbox" id="theme-toggle" class="theme-toggle-checkbox">
+                  <label for="theme-toggle" class="theme-toggle-label">
+                      <div class="toggle-ball"></div>
+                  </label>
+              </div>
 
               <button class="icon-button menu-toggle">
                 <i data-lucide="menu"></i>
-@@ .. @@
+              </button>
+            </div>
+          </div>
+        </nav>
+      </header>
+
+      <main class="main">
+        <div class="search-container">
+          <div class="search-box">
+            <input
+              type="text"
+              id="search-input"
+              placeholder="Wyszukaj audycję..."
+              class="search-input"
+            />
+            <button class="search-button">
+              <i data-lucide="search"></i>
+            </button>
+          </div>
+        </div>
+
+        <div class="content">
+          <div class="sidebar">
+            <div class="sidebar-header">
+              <h2>Audycje</h2>
+            </div>
+            <div class="episode-list" id="episode-list">
+              <!-- Episodes will be loaded here -->
+            </div>
+          </div>
+
+          <div class="player-section">
+            <div class="player-container">
+              <div class="now-playing">
+                <div class="episode-info">
+                  <h3 id="current-title">Wybierz audycję</h3>
+                  <p id="current-description">
+                    Kliknij na audycję z listy, aby rozpocząć odtwarzanie
+                  </p>
+                </div>
+              </div>
+              <div class="player-wrapper">
+                <audio
+                  id="player"
+                  controls
+                  preload="none"
+                  class="plyr-audio"
+                >
+                  Twoja przeglądarka nie obsługuje odtwarzacza audio.
+                </audio>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <script src="https://cdn.plyr.io/3.7.8/plyr.polyfilled.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

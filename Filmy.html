@@ -1,18 +1,411 @@
-@@ .. @@
-             <div class="nav-actions">
-                 <button class="icon-button search-toggle">
-                     <i data-lucide="search"></i>
-                 </button>
-+
-+                <!-- Theme Switcher -->
-+                <div class="theme-switcher">
-+                    <input type="checkbox" id="theme-toggle" class="theme-toggle-checkbox">
-+                    <label for="theme-toggle" class="theme-toggle-label">
-+                        <div class="toggle-ball"></div>
-+                    </label>
-+                </div>
-+
-                 <a href="Logowanie.html" class="icon-button">
-                     <i data-lucide="user-circle"></i>
-                 </a>
-@@ .. @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filmy - WFO</title>
+    <link rel="stylesheet" href="style.css?v=<?= filemtime('styles.css') ?>">
+    <link rel="stylesheet" href="style.css" id="theme-stylesheet">
+    <link rel="icon" type="image/png" href="https://www.wfo.com.pl/wp-content/uploads/2015/11/wfo-100x33.png">
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <img src="https://www.wfo.com.pl/wp-content/uploads/2015/11/wfo-100x33.png" alt="WFO Logo" class="logo">
+            </div>
+            
+            <div class="nav-menu">
+                <a href="index.html" class="nav-link">Strona główna</a>
+                <a href="Filmy.html" class="nav-link active">Filmy</a>
+                <a href="Seriale.html" class="nav-link">Seriale</a>
+                <a href="Anime.html" class="nav-link">Anime</a>
+                <a href="Kontakt.html" class="nav-link">Kontakt</a>
+            </div>
+            
+            <div class="nav-actions">
+                <button class="icon-button search-toggle">
+                    <i data-lucide="search"></i>
+                </button>
+
+                <!-- Theme Switcher -->
+                <div class="theme-switcher">
+                    <input type="checkbox" id="theme-toggle" class="theme-toggle-checkbox">
+                    <label for="theme-toggle" class="theme-toggle-label">
+                        <div class="toggle-ball"></div>
+                    </label>
+                </div>
+
+                <a href="Logowanie.html" class="icon-button">
+                    <i data-lucide="user-circle"></i>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="search-overlay">
+        <div class="search-container">
+            <input type="text" class="search-input" placeholder="Szukaj filmów...">
+            <button class="search-close">
+                <i data-lucide="x"></i>
+            </button>
+        </div>
+    </div>
+
+    <main class="main-content">
+        <div class="hero-section">
+            <h1>Filmy</h1>
+            <p>Odkryj najlepsze filmy z całego świata</p>
+        </div>
+
+        <div class="content-container">
+            <div class="filters">
+                <div class="filter-group">
+                    <label for="genre-filter">Gatunek:</label>
+                    <select id="genre-filter">
+                        <option value="">Wszystkie</option>
+                        <option value="akcja">Akcja</option>
+                        <option value="komedia">Komedia</option>
+                        <option value="dramat">Dramat</option>
+                        <option value="horror">Horror</option>
+                        <option value="sci-fi">Sci-Fi</option>
+                        <option value="thriller">Thriller</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label for="year-filter">Rok:</label>
+                    <select id="year-filter">
+                        <option value="">Wszystkie</option>
+                        <option value="2024">2024</option>
+                        <option value="2023">2023</option>
+                        <option value="2022">2022</option>
+                        <option value="2021">2021</option>
+                        <option value="2020">2020</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label for="rating-filter">Ocena:</label>
+                    <select id="rating-filter">
+                        <option value="">Wszystkie</option>
+                        <option value="9+">9.0+</option>
+                        <option value="8+">8.0+</option>
+                        <option value="7+">7.0+</option>
+                        <option value="6+">6.0+</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="movies-grid">
+                <div class="movie-card" data-genre="akcja" data-year="2024" data-rating="8.5">
+                    <div class="movie-poster">
+                        <img src="https://via.placeholder.com/300x450/333/fff?text=Film+1" alt="Film 1">
+                        <div class="movie-overlay">
+                            <button class="play-button">
+                                <i data-lucide="play"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="movie-info">
+                        <h3>Tytuł Filmu 1</h3>
+                        <div class="movie-meta">
+                            <span class="year">2024</span>
+                            <span class="rating">
+                                <i data-lucide="star"></i>
+                                8.5
+                            </span>
+                        </div>
+                        <p class="movie-description">Krótki opis filmu, który przedstawia główne wątki fabularne...</p>
+                    </div>
+                </div>
+
+                <div class="movie-card" data-genre="komedia" data-year="2023" data-rating="7.8">
+                    <div class="movie-poster">
+                        <img src="https://via.placeholder.com/300x450/444/fff?text=Film+2" alt="Film 2">
+                        <div class="movie-overlay">
+                            <button class="play-button">
+                                <i data-lucide="play"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="movie-info">
+                        <h3>Tytuł Filmu 2</h3>
+                        <div class="movie-meta">
+                            <span class="year">2023</span>
+                            <span class="rating">
+                                <i data-lucide="star"></i>
+                                7.8
+                            </span>
+                        </div>
+                        <p class="movie-description">Zabawna komedia o przygodach grupy przyjaciół...</p>
+                    </div>
+                </div>
+
+                <div class="movie-card" data-genre="dramat" data-year="2023" data-rating="9.2">
+                    <div class="movie-poster">
+                        <img src="https://via.placeholder.com/300x450/555/fff?text=Film+3" alt="Film 3">
+                        <div class="movie-overlay">
+                            <button class="play-button">
+                                <i data-lucide="play"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="movie-info">
+                        <h3>Tytuł Filmu 3</h3>
+                        <div class="movie-meta">
+                            <span class="year">2023</span>
+                            <span class="rating">
+                                <i data-lucide="star"></i>
+                                9.2
+                            </span>
+                        </div>
+                        <p class="movie-description">Poruszający dramat o ludzkich relacjach i emocjach...</p>
+                    </div>
+                </div>
+
+                <div class="movie-card" data-genre="horror" data-year="2024" data-rating="6.9">
+                    <div class="movie-poster">
+                        <img src="https://via.placeholder.com/300x450/666/fff?text=Film+4" alt="Film 4">
+                        <div class="movie-overlay">
+                            <button class="play-button">
+                                <i data-lucide="play"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="movie-info">
+                        <h3>Tytuł Filmu 4</h3>
+                        <div class="movie-meta">
+                            <span class="year">2024</span>
+                            <span class="rating">
+                                <i data-lucide="star"></i>
+                                6.9
+                            </span>
+                        </div>
+                        <p class="movie-description">Mrożący krew w żyłach horror o nadprzyrodzonych zjawiskach...</p>
+                    </div>
+                </div>
+
+                <div class="movie-card" data-genre="sci-fi" data-year="2022" data-rating="8.1">
+                    <div class="movie-poster">
+                        <img src="https://via.placeholder.com/300x450/777/fff?text=Film+5" alt="Film 5">
+                        <div class="movie-overlay">
+                            <button class="play-button">
+                                <i data-lucide="play"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="movie-info">
+                        <h3>Tytuł Filmu 5</h3>
+                        <div class="movie-meta">
+                            <span class="year">2022</span>
+                            <span class="rating">
+                                <i data-lucide="star"></i>
+                                8.1
+                            </span>
+                        </div>
+                        <p class="movie-description">Futurystyczna opowieść o technologii i ludzkości...</p>
+                    </div>
+                </div>
+
+                <div class="movie-card" data-genre="thriller" data-year="2021" data-rating="7.5">
+                    <div class="movie-poster">
+                        <img src="https://via.placeholder.com/300x450/888/fff?text=Film+6" alt="Film 6">
+                        <div class="movie-overlay">
+                            <button class="play-button">
+                                <i data-lucide="play"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="movie-info">
+                        <h3>Tytuł Filmu 6</h3>
+                        <div class="movie-meta">
+                            <span class="year">2021</span>
+                            <span class="rating">
+                                <i data-lucide="star"></i>
+                                7.5
+                            </span>
+                        </div>
+                        <p class="movie-description">Trzymający w napięciu thriller psychologiczny...</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pagination">
+                <button class="pagination-btn" disabled>
+                    <i data-lucide="chevron-left"></i>
+                    Poprzednia
+                </button>
+                <div class="pagination-numbers">
+                    <button class="pagination-number active">1</button>
+                    <button class="pagination-number">2</button>
+                    <button class="pagination-number">3</button>
+                    <span class="pagination-dots">...</span>
+                    <button class="pagination-number">10</button>
+                </div>
+                <button class="pagination-btn">
+                    Następna
+                    <i data-lucide="chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>WFO</h3>
+                <p>Twoje miejsce dla najlepszych filmów, seriali i anime.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Szybkie linki</h4>
+                <ul>
+                    <li><a href="index.html">Strona główna</a></li>
+                    <li><a href="Filmy.html">Filmy</a></li>
+                    <li><a href="Seriale.html">Seriale</a></li>
+                    <li><a href="Anime.html">Anime</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Kontakt</h4>
+                <ul>
+                    <li><a href="Kontakt.html">Skontaktuj się z nami</a></li>
+                    <li><a href="#">Regulamin</a></li>
+                    <li><a href="#">Polityka prywatności</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Śledź nas</h4>
+                <div class="social-links">
+                    <a href="#" class="social-link">
+                        <i data-lucide="facebook"></i>
+                    </a>
+                    <a href="#" class="social-link">
+                        <i data-lucide="twitter"></i>
+                    </a>
+                    <a href="#" class="social-link">
+                        <i data-lucide="instagram"></i>
+                    </a>
+                    <a href="#" class="social-link">
+                        <i data-lucide="youtube"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 WFO. Wszystkie prawa zastrzeżone.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Search functionality
+        const searchToggle = document.querySelector('.search-toggle');
+        const searchOverlay = document.querySelector('.search-overlay');
+        const searchClose = document.querySelector('.search-close');
+        const searchInput = document.querySelector('.search-input');
+
+        searchToggle.addEventListener('click', () => {
+            searchOverlay.classList.add('active');
+            searchInput.focus();
+        });
+
+        searchClose.addEventListener('click', () => {
+            searchOverlay.classList.remove('active');
+        });
+
+        searchOverlay.addEventListener('click', (e) => {
+            if (e.target === searchOverlay) {
+                searchOverlay.classList.remove('active');
+            }
+        });
+
+        // Filter functionality
+        const genreFilter = document.getElementById('genre-filter');
+        const yearFilter = document.getElementById('year-filter');
+        const ratingFilter = document.getElementById('rating-filter');
+        const movieCards = document.querySelectorAll('.movie-card');
+
+        function filterMovies() {
+            const selectedGenre = genreFilter.value;
+            const selectedYear = yearFilter.value;
+            const selectedRating = ratingFilter.value;
+
+            movieCards.forEach(card => {
+                const cardGenre = card.dataset.genre;
+                const cardYear = card.dataset.year;
+                const cardRating = parseFloat(card.dataset.rating);
+
+                let showCard = true;
+
+                if (selectedGenre && cardGenre !== selectedGenre) {
+                    showCard = false;
+                }
+
+                if (selectedYear && cardYear !== selectedYear) {
+                    showCard = false;
+                }
+
+                if (selectedRating) {
+                    const minRating = parseFloat(selectedRating.replace('+', ''));
+                    if (cardRating < minRating) {
+                        showCard = false;
+                    }
+                }
+
+                card.style.display = showCard ? 'block' : 'none';
+            });
+        }
+
+        genreFilter.addEventListener('change', filterMovies);
+        yearFilter.addEventListener('change', filterMovies);
+        ratingFilter.addEventListener('change', filterMovies);
+
+        // Movie card hover effects
+        movieCards.forEach(card => {
+            const playButton = card.querySelector('.play-button');
+            
+            playButton.addEventListener('click', () => {
+                const movieTitle = card.querySelector('h3').textContent;
+                alert(`Odtwarzanie: ${movieTitle}`);
+            });
+        });
+
+        // Pagination
+        const paginationNumbers = document.querySelectorAll('.pagination-number');
+        const prevBtn = document.querySelector('.pagination-btn:first-child');
+        const nextBtn = document.querySelector('.pagination-btn:last-child');
+
+        paginationNumbers.forEach(btn => {
+            btn.addEventListener('click', () => {
+                paginationNumbers.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                
+                // Update prev/next button states
+                const currentPage = parseInt(btn.textContent);
+                prevBtn.disabled = currentPage === 1;
+                nextBtn.disabled = currentPage === 10;
+            });
+        });
+
+        // Search functionality
+        searchInput.addEventListener('input', (e) => {
+            const searchTerm = e.target.value.toLowerCase();
+            
+            movieCards.forEach(card => {
+                const title = card.querySelector('h3').textContent.toLowerCase();
+                const description = card.querySelector('.movie-description').textContent.toLowerCase();
+                
+                if (title.includes(searchTerm) || description.includes(searchTerm)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

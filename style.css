@@ -1,0 +1,77 @@
+@@ .. @@
+/* Theme Switcher Styles */
+.theme-switcher {
+    position: relative;
+    display: inline-block;
+    width: 120px; /* Zmniejszona szerokość */
+    height: 30px; /* Zmniejszona wysokość */
+    margin-right: 1rem;
+}
+
+.theme-toggle-checkbox {
+    display: none;
+}
+
+.theme-toggle-label {
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-surface-light); /* Darker background for dark mode */
+    border-radius: 15px; /* Half of height for pill shape */
+    cursor: pointer;
+    position: relative;
+    transition: background-color 0.3s;
+    overflow: hidden; /* Hide overflowing icons */
+}
+
+.theme-toggle-label .toggle-icon {
+    opacity: 0; /* Hide icons permanently */
+    position: absolute; /* Keep position for layout consistency */
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+    color: var(--color-text-secondary);
+}
+
+.theme-toggle-label .toggle-ball {
+    position: absolute;
+    width: 26px; /* Slightly smaller than height to show border */
+    height: 26px;
+    background-color: var(--color-primary); /* Primary color for the ball */
+    border-radius: 50%;
+    top: 2px;
+    left: 2px;
+    transition: transform 0.3s ease, background-color 0.3s;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Checked state for dark mode */
+.theme-toggle-checkbox:checked + .theme-toggle-label {
+    background-color: var(--color-surface-light); /* Stays dark for dark mode */
+}
+
+.theme-toggle-checkbox:checked + .theme-toggle-label .toggle-ball {
+    transform: translateX(88px); /* Move to the right for dark mode (120 - 26 - 2*2 = 88) */
+    background-color: var(--color-primary); /* Stays primary for dark mode */
+}
+
+/* Text inside the label (Day/Night Mode) */
+.theme-toggle-label::before {
+    content: 'TRYB DZIENNY'; /* Day mode text */
+    position: absolute;
+    left: 40px; /* Adjusted position */
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--color-text);
+    font-size: 0.7rem; /* Zmniejszona czcionka */
+    font-weight: 600;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.theme-toggle-checkbox:checked + .theme-toggle-label::before {
+    content: 'TRYB NOCNY'; /* Night mode text */
+    left: 12px; /* Adjusted position */
+    color: var(--color-text);
+}
